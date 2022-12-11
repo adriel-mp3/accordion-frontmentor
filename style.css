@@ -1,0 +1,133 @@
+body {
+  font-family: 'Kumbh Sans', sans-serif;
+  box-sizing: border-box;
+  display: flex;
+  min-height: 100vh;
+  margin:0 auto;
+  align-items: center;
+  justify-content: center;
+  background:linear-gradient(hsl(273, 75%, 66%),hsl(240, 73%, 65%))
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+body,
+h1,
+dl,
+dt,
+dd {
+  margin:0;
+  padding:0;
+}
+
+.container {
+  margin: 20px 0;
+  padding: 40px;
+  max-width: 900px;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr 1fr;
+  background: url('./images/bg-pattern-desktop.svg') no-repeat  hsl(240, 5%, 91%);
+  background-size: contain;
+  border-radius: 18px;
+}
+
+.hero-image {
+  position: relative;
+  left:-60px;
+  top:-10px;
+}
+
+.hero-image::before {
+  content: '';
+  display: block;
+  width: 190px;
+  height: 180px;
+  background: url('./images/illustration-box-desktop.svg');
+  position: absolute;
+  top:130px;
+  left:-20px;
+}
+
+.faq h1 {
+  font-weight: 700;
+  font-size: 2rem;
+  margin-bottom: 14px;
+  color:hsl(238, 29%, 16%);
+}
+
+.faq dt {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  color:hsl(237, 12%, 33%);
+  padding:10px 0;
+  margin:10px 0;
+  cursor:pointer;
+}
+
+.faq dd {
+  color:hsl(240, 6%, 50%);
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+}
+
+.faq div {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.js .js-faq dd{
+  display: none;
+}
+
+.js .js-faq dd.ativo {
+  animation: show 0.5s forwards;
+  display: block;
+}
+
+.js .js-faq dt.ativo img {
+  animation: 0.5s ;
+  transform:rotate(180deg);
+  transition: 0.7s;
+}
+
+@keyframes show {
+  from {
+    opacity: 0;
+    max-height: 0;
+  }
+  to {
+    opacity: 1;
+    max-height: 50px;
+  }
+}
+
+@media (max-width:1000px) {
+  .container {
+    max-width: 600px;
+    background: hsl(240, 5%, 91%);
+  }
+  .faq dt img {
+    margin-left: 10px;
+  }
+  .hero-image::before {
+    display: none;
+  }
+}
+
+@media (max-width:700px) {
+  .container {
+    max-width: 250px;
+    display: flex;
+    flex-direction: column;
+  }
+  .hero-image {
+    position: relative;
+  }
+  .faq dd {
+    font-size: 0.8rem;
+  }
+}
+
